@@ -1,4 +1,4 @@
-# Interactive Website 📜
+# Interactive Website 🤩
 ## Interactive BBC NEWS Website 📰 
 - HTML, CSS 및 JavaScript를 사용하는 인터렉티브 웹사이트.
 - graphic-item(이미지)들의 부모 박스에 position sticky를 처리했습니다.
