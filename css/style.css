@@ -1,0 +1,72 @@
+html {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+	margin: 0;
+}
+div, section, header, footer, p, h1, h2 {
+	box-sizing: border-box;
+}
+a {
+	color: royalblue;
+}
+img {
+	/* img에 max-width를 쓴 이유: 
+		반응형으로 잘 동작하도록, 
+		컨테이너가 줄어들었을 때, 같이 줄어들기 위해서
+	*/
+	max-width: 100%; 
+	height: auto;
+}
+
+.global-width {
+	max-width: 620px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+/* 이미지들의 컨테이너 */
+.scroll-graphic {
+	position: sticky;
+	top: 0; 
+	/* 브라우저 상단이 sticky로 지정한 엘리먼트들의
+	top 위치값에 오면 안올라가고 붙어있다*/
+	height: 100vh;
+}
+
+/* 이미지들 */
+.scroll-graphic .graphic-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: 0.5s;
+}
+
+.graphic-item.visible {
+	opacity: 1;
+}
+
+.graphic-item .scene-img {
+	max-height: 100vh;
+	/* 높이에 제한을 줌: 뷰포트 사이즈 높이에 맞게 설정 */
+}
+
+.scroll-text {
+	position: relative; 
+	/* HTML코드 상 text가 아래에 있기 때문에
+	이미지 위로 올라오게끔 relative를 써줌 */
+}
+
+.scroll-text .step {
+	margin-bottom: 60vh; /* 뷰포트60 : 창 사이즈의 60% 높이 */ 
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0 0, 0, 0.3) 0 0 3px;
+}
