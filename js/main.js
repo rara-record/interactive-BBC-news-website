@@ -2,6 +2,17 @@
 
 // 익명함수
 (() => {
+    const actions = {
+        birdFlies(key) {
+
+            if (key) {
+                document.querySelector('[data-index="2"] .bird').style.transform = `translateX(${window.innerWidth}px)`;
+                // window 폭만큼 날아가게 하기
+            } else {
+                document.querySelector('[data-index="2"] .bird').style.transform = `translateX(-100%)`;
+            }
+        }
+    }
     const stepElems = document.querySelectorAll('.step');
     const graphicElems = document.querySelectorAll('.graphic-item');
     let currentItem = graphicElems[0];
@@ -10,7 +21,6 @@
     // IntersectionObserver API
     const io = new IntersectionObserver((entries, observer) => {
         ioIndex = entries[0].target.dataset.index * 1; // *1 : numberType으로 변환
-        // console.log(ioIndex)
     });
 
     // data-index를 부여한다
@@ -20,15 +30,22 @@
         graphicElems[i].dataset.index = i;
     }
 
-    
     // 현재 graphic-item 보여주기
-    function activate() {
+    function activate(action) {
         currentItem.classList.add('visible');
+
+        // 만약 birdFlies가 들어오면, birdFlies 메소드 실행
+        if (action) {
+            actions[action](true);
+        }
     }
 
     // 현재 graphic-item 지우기
-    function inactivate() {
+    function inactivate(action) {
         currentItem.classList.remove('visible');
+        if (action) {
+            actions[action](false);
+        }
     }
 
     window.addEventListener('scroll', ()=> {
@@ -50,18 +67,16 @@
             if (boundingRect.top > window.innerHeight * 0.1 &&
                 boundingRect.top < window.innerHeight * 0.8) {
 
-                // graphic-item 비활성화 함수
-                inactivate();
-
+                inactivate(currentItem.dataset.action);
                 // step.dataset의 index번호에 따라 img가 보이게 한다
                 currentItem = graphicElems[step.dataset.index];
-
-                // graphic-item 활성화 함수
-                activate();
+                activate(currentItem.dataset.action);
             }    
         }
     });
 
-    activate(); // 처음 graghicElems[0]번째 이미지를 보여준다
 
+    
+
+    activate(); // 처음 graghicElems[0]번째 이미지를 보여준다
 })();

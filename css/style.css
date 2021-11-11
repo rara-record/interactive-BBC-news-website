@@ -57,6 +57,16 @@ img {
 	/* 높이에 제한을 줌: 뷰포트 사이즈 높이에 맞게 설정 */
 }
 
+.graphic-item .bird {
+	position: absolute;
+	left: 0; 
+	bottom: 70%;
+	width: 100px;
+	/* translate에 %를 쓰면 내 크기만큼*/
+	transform :translate(-100%);
+	transition: 1.5s 0.5s linear;
+}
+
 .scroll-text {
 	position: relative; 
 	/* HTML코드 상 text가 아래에 있기 때문에
