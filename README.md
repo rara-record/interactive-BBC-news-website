@@ -1,4 +1,4 @@
-WEB PAGE LINK 🌟 https://rara-record.github.io/bbc_news/
+WEB PAGE LINK 🌟 https://rara-record.github.io/interactive-BBC-news-website/
 # Interactive Website 🤩 
 ## with 1분 코딩 Interactive BBC NEWS Website 📰 
 ![사이트 미리보기](https://user-images.githubusercontent.com/70184893/141324925-db14e702-f9ab-4535-8c25-fadc79041d8f.png)
